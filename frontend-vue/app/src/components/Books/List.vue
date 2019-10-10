@@ -4,6 +4,7 @@
         <p>{{book.name}}</p>
         <p>{{book.author}}</p>
         <p>{{book.description}}</p>
+        <p>{{book.genre}}</p>
         
         <v-btn class="ma-2" text icon color="red lighten-2">
           <v-icon class="delete" @click="deleteBook(book)"></v-icon>
