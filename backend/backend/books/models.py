@@ -16,6 +16,10 @@ class Book(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def genre_name(self):
+        return self.genre.name
 
 
 class Genre(models.Model):
