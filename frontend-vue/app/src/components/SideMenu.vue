@@ -45,6 +45,7 @@ export default {
         { title: "My Account", icon: "mdi-account", endpoint: '/user' },
         { title: "Users", icon: "mdi-account-group", endpoint: '/users' },
         { title: "Books", icon: "mdi-library-books", endpoint: '/books'},
+        { title: "Experiments", icon: "mdi-chart-pie", endpoint: '/experiments'}
       ]
     };
   },
