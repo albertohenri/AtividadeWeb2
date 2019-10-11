@@ -32,6 +32,17 @@
               <v-col cols="12">
                 <v-text-field v-model="book.description" label="Descrição*" type="text" required></v-text-field>
               </v-col>
+              <v-col cols="12">
+                <v-select
+                  :items = "genres"
+                  item-value = "id"
+                  item-text = "name"
+                  label = "Gênero"
+                  attach
+                  v-model = "book.genre"
+                >
+                </v-select>
+              </v-col>
             </v-row>
           </v-container>
           <small>*informações obrigatórias</small>
@@ -52,10 +63,26 @@ export default {
   data() {
     return {
       dialog: false,
+      genres: [],
       book: {}
     };
   },
+  created() {
+    this.getGenres()
+  },
   methods: {
+    getGenres() {
+      axios
+      .request({
+        baseURL: "http://localhost:8000",
+        method: "get",
+        url: "/api/genres/"
+      })
+      .then(response => {
+        this.genres = response.data
+        console.log(response)
+      });
+    },
     add() {
       axios
         .post("http://localhost:8000/api/books/add/",
