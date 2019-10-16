@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import DateTimeField
 
+from . import Genre
 
 class Book(models.Model):
     name = models.CharField(max_length=100)
@@ -20,10 +21,3 @@ class Book(models.Model):
     @property
     def genre_name(self):
         return self.genre.name
-
-
-class Genre(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
