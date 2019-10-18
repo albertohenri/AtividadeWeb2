@@ -1,2 +1,3 @@
 from .genres import Genre
-from .books import Book
+from .authors import Author
+from .books import Book, BookAuthor
