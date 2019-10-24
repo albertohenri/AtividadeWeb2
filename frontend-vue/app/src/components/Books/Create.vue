@@ -22,12 +22,17 @@
                 <v-text-field v-model="book.name" label="Título*" hint="Título do livro" required></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field
-                  v-model="book.author"
-                  label="Autor*"
-                  hint="Nome do autor do livro"
-                  required
-                ></v-text-field>
+                <v-select
+                  :items = "authors"
+                  item-value = "id"
+                  item-text = "first_name"
+                  label = "Autores"
+                  attach
+                  multiple
+                  chips
+                  v-model = "book.authors"
+                >
+                </v-select>
               </v-col>
               <v-col cols="12">
                 <v-text-field v-model="book.description" label="Descrição*" type="text" required></v-text-field>
@@ -64,11 +69,13 @@ export default {
     return {
       dialog: false,
       genres: [],
+      authors: [],
       book: {}
     };
   },
   created() {
     this.getGenres()
+    this.getAuthors()
   },
   methods: {
     getGenres() {
@@ -80,6 +87,18 @@ export default {
       })
       .then(response => {
         this.genres = response.data
+        console.log(response)
+      });
+    },
+    getAuthors() {
+      axios
+      .request({
+        baseURL: "http://localhost:8000",
+        method: "get",
+        url: "/api/authors/"
+      })
+      .then(response => {
+        this.authors = response.data
         console.log(response)
       });
     },
