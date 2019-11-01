@@ -28,6 +28,18 @@
           <v-list-item-title >{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <template v-if="logged">
+        <hr>
+        <v-list-item :to="item.endpoint" v-for="item in items_logged" :key="item.title" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -46,6 +58,9 @@ export default {
         { title: "Users", icon: "mdi-account-group", endpoint: '/users' },
         { title: "Books", icon: "mdi-library-books", endpoint: '/books'},
         { title: "Experiments", icon: "mdi-chart-pie", endpoint: '/experiments'}
+      ],
+      items_logged: [
+        { title: "Logout", icon: "mdi-logout", endpoint: '/logout'}
       ]
     };
   },
@@ -60,6 +75,11 @@ export default {
       else {
         this.user.name = 'None2'
       }
+    },
+  },
+  computed: {
+    logged() {
+      return this.$session.has('token')
     }
   }
 };

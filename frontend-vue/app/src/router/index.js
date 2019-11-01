@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '@/components/Index'
-import Login from '@/components/Login'
+import Login from '@/views/Login'
+import Logout from '@/views/Logout'
 import ListBooks from '@/components/Books/List'
 import EditBook from'@/components/Books/Edit'
 import Experiments from '@/components/Experiments'
@@ -22,6 +23,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
     },
     {
       path: '/books',

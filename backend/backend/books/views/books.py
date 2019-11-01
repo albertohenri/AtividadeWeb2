@@ -29,9 +29,7 @@ class BookUpdate(generics.UpdateAPIView):
 class BookCreate(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = (
-        permissions.DjangoModelPermissions,
-    )
+    permission_classes = ()
 
 
 class BookGet(generics.RetrieveAPIView):

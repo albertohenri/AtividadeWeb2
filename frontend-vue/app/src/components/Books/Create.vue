@@ -21,19 +21,43 @@
               <v-col cols="12">
                 <v-text-field v-model="book.name" label="Título*" hint="Título do livro" required></v-text-field>
               </v-col>
-              <v-col cols="12">
+              <v-row class="form-group" v-for="(input,k) in bookauthors" :key="k">
+                
+              <v-col cols="7">
                 <v-select
                   :items = "authors"
                   item-value = "id"
                   item-text = "first_name"
                   label = "Autores"
                   attach
-                  multiple
-                  chips
-                  v-model = "book.authors"
+                  single-line
+                  v-model = "input.author"
                 >
                 </v-select>
               </v-col>
+              <v-col cols="4">
+                <v-select
+                  :items = "roles"
+                  item-value = "id"
+                  item-text = "role"
+                  label = "Role"
+                  attach
+                  single-line
+                  v-model="input.role"
+                >
+                </v-select>
+              </v-col>
+              <v-col cols="1">
+                    <v-icon 
+                      @click="addauthor(k)"
+                    >mdi-plus</v-icon>
+                    <v-icon 
+                      @click="removeauthor(k)"
+                      v-show="k || ( !k && bookauthors.length > 1)">
+                       mdi-minus
+                    </v-icon>
+              </v-col>
+              </v-row>
               <v-col cols="12">
                 <v-text-field v-model="book.description" label="Descrição*" type="text" required></v-text-field>
               </v-col>
@@ -70,7 +94,17 @@ export default {
       dialog: false,
       genres: [],
       authors: [],
-      book: {}
+      book: {},
+      bookauthors: [{
+        author: "",
+        role: 0
+      }],
+      roles: [
+        {id: 0, role: "Writer"},
+        {id: 1, role: "Translator"},
+        {id: 2, role: "Illustrator"},
+        {id: 3, role: "Editorss"}
+      ]
     };
   },
   created() {
@@ -78,6 +112,12 @@ export default {
     this.getAuthors()
   },
   methods: {
+    addauthor(index) {
+      this.bookauthors.push({ name: '', role: ''});
+    },
+    removeauthor(index) {
+      this.bookauthors.splice(index, 1);
+    },
     getGenres() {
       axios
       .request({
@@ -89,6 +129,9 @@ export default {
         this.genres = response.data
         console.log(response)
       });
+    },
+    getRoles() {
+
     },
     getAuthors() {
       axios
@@ -103,6 +146,7 @@ export default {
       });
     },
     add() {
+      this.book.authors = this.bookauthors
       axios
         .post("http://localhost:8000/api/books/add/",
           this.book, 

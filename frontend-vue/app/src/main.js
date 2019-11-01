@@ -14,10 +14,11 @@ Vue.use(VueSession)
 Vue.use(Vuelidate)
 
 
-new Vue({
+const vm = new Vue({
+  el: "#app",
   vuetify,
   router,
   render: h => h(App)
-}).$mount('#app')
+})
 
 export const EventBus = new Vue();
