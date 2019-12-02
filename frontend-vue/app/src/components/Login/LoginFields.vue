@@ -32,7 +32,7 @@ export default {
         username: [v => !!v || "Usuário é obrigatório."],
         password: [
           v => !!v || "Senha é obrigatória.",
-          v => (v && v.length > 5) || "A senha deve ser maior que 5 caracteres."
+          v => (v && v.length > 4) || "A senha deve ser maior que 4 caracteres."
         ]
     }
     }

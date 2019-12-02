@@ -1,12 +1,12 @@
 <template>
   <section>
-    <h1>Teste</h1>
+    <h1>Escolha Generos de Livros do seu Gosto</h1>
     <h3>{{texto}}</h3>
     <v-select
       :items = "items"
       item-value = "id"
       item-text = "name"
-      label = "Estilos do Rock in Rio"
+      label = "Estilos de Livros"
       attach
       multiple
       chips
@@ -24,7 +24,7 @@ export default {
     name: "Experiments",
     data () {
       return  {
-        texto: "Exemplo de Select",
+        texto: "Generos Literarios",
         items: [],
         escolha: "",
       }

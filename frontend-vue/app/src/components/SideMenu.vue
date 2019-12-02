@@ -44,6 +44,7 @@
   </v-navigation-drawer>
 </template>
 
+
 <script>
 export default {
   name: "SideMenu",
@@ -54,9 +55,9 @@ export default {
       user: {},
       items: [
         { title: "Home", icon: "mdi-home-city", endpoint: '/' },
-        { title: "My Account", icon: "mdi-account", endpoint: '/user' },
-        { title: "Users", icon: "mdi-account-group", endpoint: '/users' },
-        { title: "Books", icon: "mdi-library-books", endpoint: '/books'},
+        { title: "Minha Conta", icon: "mdi-account", endpoint: '/user' },
+        { title: "Usuarios", icon: "mdi-account-group", endpoint: '/users' },
+        { title: "Livros", icon: "mdi-library-books", endpoint: '/books'},
         { title: "Experiments", icon: "mdi-chart-pie", endpoint: '/experiments'}
       ],
       items_logged: [
