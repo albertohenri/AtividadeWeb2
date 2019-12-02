@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="600px">
+    <v-dialog v-model="dialog" persistent max-width="500px">
       <template v-slot:activator="{ on }">
         <v-card-text>
           <v-fab-transition>

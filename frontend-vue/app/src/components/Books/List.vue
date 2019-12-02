@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+  <div class="col-md-4">
+    <v-container>
       <div v-for="book in books" v-bind:key="book.id">
         <p>{{book.name}}</p>
         <p>{{book.author}}</p>
@@ -16,6 +17,7 @@
       </div>
       <CreateBooks @updateBooks="all"></CreateBooks>
   </v-container>
+  </div>
 </template>
 
 

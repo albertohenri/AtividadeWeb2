@@ -3,18 +3,11 @@ from rest_framework import serializers
 from books.models import (Book, Genre, Author, BookAuthor)
 
 
-# class BookAuthorSerializer(serializers.HyperlinkedModelSerializer):
-#     id = serializers.ReadOnlyField(source="author.id")
-#     name = serializers.ReadOnlyField(source="author.name")
 
-#     class Meta:
-#         model = BookAuthor
-
-#         fields = ('id', 'name', 'role')
 
 
 class BookSerializer(serializers.ModelSerializer):
-    # authors = BookAuthorSerializer(source='bookauthor_set', many=True)
+    
     
     class Meta:
         model = Book
