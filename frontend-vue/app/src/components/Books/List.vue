@@ -1,12 +1,20 @@
+<style >
+
+
+</style>
+
+
 <template>
-  <div class="col-md-4">
-    <v-container>
-      <div v-for="book in books" v-bind:key="book.id">
+  <div class="col-md-15 " align="center"  >
+    <v-container fluid grid-list-xl>
+      <h1 class="Livros Sugeridos" align="center"></h1>
+      <v-layout wrap justify-space-around>
+      <v-flex v-for="book in books" v-bind:key="book.id">
+        <v-card height="200px" width="240px">
         <p>{{book.name}}</p>
         <p>{{book.author}}</p>
         <p>{{book.description}}</p>
         <p>{{book.genre_name}}</p>
-        
         <v-btn class="ma-2" text icon color="red lighten-2">
           <v-icon class="delete" @click="deleteBook(book)"></v-icon>
         </v-btn>
@@ -14,8 +22,11 @@
           <v-icon class="edit" @click="editBook(book)"></v-icon>
         </v-btn>
         <v-divider></v-divider>
-      </div>
+        </v-card>
+      </v-flex>
       <CreateBooks @updateBooks="all"></CreateBooks>
+      </v-layout>
+      
   </v-container>
   </div>
 </template>

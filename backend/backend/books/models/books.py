@@ -4,9 +4,9 @@ from django.db.models.fields import DateTimeField
 from . import Genre, Author
 
 ROLE_AUTHOR = [
-    (0, 'Writer'),
-    (1, 'Translator'),
-    (2, 'Illustrator'),
+    (0, 'Escritor'),
+    (1, 'Tradutor'),
+    (2, 'Ilustrador'),
     (3, 'Editor')
 ]
 
