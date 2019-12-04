@@ -7,6 +7,7 @@ import Logout from '@/views/Logout'
 import ListBooks from '@/components/Books/List'
 import EditBook from'@/components/Books/Edit'
 import Experiments from '@/components/Experiments'
+import Busca from '@/components/Busca'
 
 Vue.use(Router)
 
@@ -40,9 +41,10 @@ export default new Router({
       component: EditBook
     },
     {
-      path: '/experiments',
-      name: 'Experiments',
-      component: Experiments
-    }
+      path: '/busca',
+      name: 'Busca',
+      component: Busca
+    },
+
   ]
 })
