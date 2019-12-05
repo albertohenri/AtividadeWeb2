@@ -52,3 +52,8 @@ class BookGenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookGenre
         fields = ('id', 'book', 'genre')
+
+class PublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Publisher
+        fields = ('id', 'name', 'location', 'description', 'founded')
