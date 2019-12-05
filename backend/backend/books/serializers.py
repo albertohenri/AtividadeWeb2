@@ -21,6 +21,12 @@ class BookSerializer(serializers.ModelSerializer):
                 role = author.get("role")
                 author_instance = Author.objects.get(pk=author_id)
                 BookAuthor(book=book, author=author_instance, role=role).save()
+        if "genres" in self.initial_data:
+            genres = self.initial_data.get("genres")
+            for genre in genres:
+                genre_id = genre.get("genre")
+                genre_instance = Genre.objects.get(pk=genre_id)
+                BookGenre(book=book, genre=genre_instance).save()
         book.save()
         return book
 

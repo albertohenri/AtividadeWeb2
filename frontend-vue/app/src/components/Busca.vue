@@ -49,16 +49,29 @@ export default {
     data () {
       return  {
         texto: "genres Literarios",
-        genres: [],
+        items: [],
         booksgenre: [],
         escolha: [],
       }
     },
     created() {
       this.getGenres(),
-      this.getBGenres()
+      this.getBGenres(),
+      this.all()
     },
     methods: {
+      all() {
+      axios
+        .request({
+          baseURL: "http://127.0.0.1:8000",
+          method: "get",
+          url: "/api/books/"
+        })
+        .then(response => {
+          this.books = response.data
+          console.log(response)
+        });
+    },
       getGenres() {
         axios
         .request({

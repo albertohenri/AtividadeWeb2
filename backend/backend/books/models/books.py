@@ -13,8 +13,8 @@ ROLE_AUTHOR = [
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    created = models.DateTimeField()
-    pages = models.IntegerField()
+    created = models.DateTimeField(null=True)
+    pages = models.IntegerField(default=0)
     authors = models.ManyToManyField(
         'Author',
         related_name='books',
