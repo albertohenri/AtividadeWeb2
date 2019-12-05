@@ -16,7 +16,7 @@
           <span class="headline">Adicionar Livros</span>
         </v-card-title>
         <v-card-text>
-          <v-container>
+          <v-container class="col-md-11">
             <v-row>
               <v-col cols="12">
                 <v-text-field v-model="book.name" label="Título*" hint="Título do livro" required></v-text-field>

@@ -58,13 +58,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                        
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -92,13 +86,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                       
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -127,13 +115,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                       
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -171,13 +153,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                       
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -205,13 +181,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                        
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -240,13 +210,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                        
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -282,13 +246,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                        
                       </v-card-actions>
                     </v-card>
                   </v-hover>
@@ -316,13 +274,7 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn class="ma-2" text icon color="red lighten-2">
-                          <v-icon class="delete" @click="deleteTeam(team)"></v-icon>
-                        </v-btn>
-
-                        <v-btn class="ma-2" text icon color="green">
-                          <v-icon class="edit" @click="editTeam(team)"></v-icon>
-                        </v-btn>
+                        
                       </v-card-actions>
                     </v-card>
                   </v-hover>
