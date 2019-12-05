@@ -1,19 +1,14 @@
 from django.db import transaction
 from rest_framework import serializers
-from books.models import (Book, Genre, Author, BookAuthor)
-
-
-
+from books.models import (Book, Genre, Author, BookAuthor, BookGenre, Edition, Publisher)
 
 
 class BookSerializer(serializers.ModelSerializer):
-    
-    
     class Meta:
         model = Book
         fields = (
             'id', 'name', 'authors', 'description',
-            'genre', 'genre_name', 'created'
+            'genres', 'genre_names', 'author_names', 'created', 'pages'
         )
     
     @transaction.atomic
@@ -39,3 +34,21 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ('id', 'first_name', 'middle_name', 'last_name')
+
+
+class EditionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Edition
+        fields = ('id', 'price', 'date_published', 'published_by', 'book')
+
+
+class BookAuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookAuthor
+        fields = ('id', 'book', 'author', 'role')
+
+
+class BookGenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BookGenre
+        fields = ('id', 'book', 'genre')

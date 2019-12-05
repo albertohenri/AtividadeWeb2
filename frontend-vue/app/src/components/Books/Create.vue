@@ -100,10 +100,10 @@ export default {
         role: 0
       }],
       roles: [
-        {id: 0, role: "Writer"},
-        {id: 1, role: "Translator"},
-        {id: 2, role: "Illustrator"},
-        {id: 3, role: "Editorss"}
+        {id: 0, role: "Escritor"},
+        {id: 1, role: "Tradutor"},
+        {id: 2, role: "Ilustrador"},
+        {id: 3, role: "Editor"}
       ]
     };
   },
@@ -121,7 +121,7 @@ export default {
     getGenres() {
       axios
       .request({
-        baseURL: "http://localhost:8000",
+        baseURL: "http://127.0.0.1:8000",
         method: "get",
         url: "/api/genres/"
       })
@@ -136,7 +136,7 @@ export default {
     getAuthors() {
       axios
       .request({
-        baseURL: "http://localhost:8000",
+        baseURL: "http://127.0.0.1:8000",
         method: "get",
         url: "/api/authors/"
       })
@@ -148,7 +148,7 @@ export default {
     add() {
       this.book.authors = this.bookauthors
       axios
-        .post("http://localhost:8000/api/books/add/",
+        .post("http://127.0.0.1:8000/api/books/add/",
           this.book, 
           {
             headers: {
