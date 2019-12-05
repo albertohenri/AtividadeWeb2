@@ -21,28 +21,14 @@
       <v-layout wrap justify-space-around>
       <v-flex v-for="(genre,i) in booksgenre" v-bind:key="i">
         <div  v-for="choice in escolha" v-bind:key="choice">
-
-           <v-card height="200px" width="240px" 
-       v-if="choice == genre.genre"
-        >
-       
-          <p>{{genre.book}}</p>
-        <p>{{genre.namebook}}</p>
-        <p>{{genre.genre}}</p>
-        <p>{{genre.namegenre}}</p>
-        
-        
-        <!-- <p>{{book.description}}</p>
-        <p>{{book.genre_name}}</p> -->
-        <v-btn class="ma-2" text icon color="red lighten-2">
-          <v-icon class="delete" @click="deleteBook(book)"></v-icon>
-        </v-btn>
-        <v-btn class="ma-2" text icon color="green">
-          <v-icon class="edit" @click="editBook(book)"></v-icon>
-        </v-btn>
+           <v-card height="200px" width="240px" v-if="choice == genre.genre">
+            <p>{{genre.namebook}}</p>
+            <p>{{genre.namegenre}}</p>
         <v-divider></v-divider>
+        <v-btn class="ma-2" text icon color="green">
+          <v-icon class="edit" @click="goBook(genre.book)"></v-icon>
+        </v-btn>
         </v-card>
-
         </div>
        
       </v-flex>
@@ -96,7 +82,10 @@ export default {
           this.booksgenre = response.data
           console.log(response)
         });
-      }
+      },
+      goBook(id) {
+      router.push(`/books/edit/${id}`)
+    }
     }
 }
 </script>
