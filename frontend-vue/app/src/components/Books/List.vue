@@ -54,7 +54,7 @@ export default {
     all() {
       axios
         .request({
-          baseURL: "http://localhost:8000",
+          baseURL: "http://127.0.0.1:8000",
           method: "get",
           url: "/api/books/"
         })
@@ -66,7 +66,7 @@ export default {
     deleteBook(book) {
       if (confirm("Excluir " + book.name)) {
         axios
-          .delete(`http://localhost:8000/api/books/${book.id}`, {
+          .delete(`http://127.0.0.1:8000/api/books/${book.id}`, {
             headers: {
               Authorization: `Token ${this.$session.get("token")}`
             }

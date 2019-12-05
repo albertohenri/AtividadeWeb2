@@ -95,7 +95,7 @@ export default {
     getBookInfo() {
       axios
         .request({
-          baseURL: "http://localhost:8000",
+          baseURL: "http://127.0.0.1:8000",
           method: "get",
           url: `/api/books/get/${this.$route.params.id}/`
         })
@@ -107,7 +107,7 @@ export default {
     submit () {
       axios
         .put(
-          `http://localhost:8000/api/books/edit/${this.$route.params.id}/`,
+          `http://127.0.0.1:8000/api/books/edit/${this.$route.params.id}/`,
           this.book, 
           {
             headers: {
