@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-container class="col-md-5">
-    <h1>Escolha Generos de Livros do seu Gosto</h1>
+    <h1>Escolha genres de Livros do seu Gosto</h1>
     <h3>{{texto}}</h3>
     <v-select
       :genres = "genres"
@@ -11,7 +11,7 @@
       attach
       multiple
       chips
-      v-model = "escolha"
+      v-model = "genres"
     >
     </v-select>
     <h3>Minha escolha</h3>
@@ -19,12 +19,12 @@
     <v-container fluid grid-list-xl>
       <h1 class="Livros Sugeridos" align="center"></h1>
       <v-layout wrap justify-space-around>
-      <v-flex v-for="genero in genres" v-bind:key="genero.id">
-        <v-card height="200px" width="240px" v-if="genero.id == escolha">
-        <p>{{book.name}}</p>
-        <p>{{book.author}}</p>
-        <p>{{book.description}}</p>
-        <p>{{book.genre_name}}</p>
+      <v-flex v-for="genre in booksgenre" v-bind:key="genre.id">
+        <v-card height="200px" width="240px" >
+        <p>{{genre.book}}</p>
+        <p>{{genre.namebook}}</p>
+        <!-- <p>{{book.description}}</p>
+        <p>{{book.genre_name}}</p> -->
         <v-btn class="ma-2" text icon color="red lighten-2">
           <v-icon class="delete" @click="deleteBook(book)"></v-icon>
         </v-btn>
@@ -48,7 +48,7 @@ export default {
     name: "Experiments",
     data () {
       return  {
-        texto: "Generos Literarios",
+        texto: "genres Literarios",
         genres: [],
         booksgenre: [],
         escolha: "",
