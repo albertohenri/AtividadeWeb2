@@ -76,6 +76,10 @@ class BookGenre(models.Model):
         on_delete=models.CASCADE,
     )
 
+    @property
+    def namebook(self):
+        return self.book.name
+
     def __str__(self):
         return str((self.book, self.genre))
 

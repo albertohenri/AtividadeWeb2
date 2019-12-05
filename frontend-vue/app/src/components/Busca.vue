@@ -4,7 +4,7 @@
     <h1>Escolha Generos de Livros do seu Gosto</h1>
     <h3>{{texto}}</h3>
     <v-select
-      :items = "items"
+      :genres = "genres"
       item-value = "id"
       item-text = "name"
       label = "Estilos de Livros"
@@ -15,7 +15,29 @@
     >
     </v-select>
     <h3>Minha escolha</h3>
-    {{escolha}}
+    <div class="col-md-15 " align="center"  >
+    <v-container fluid grid-list-xl>
+      <h1 class="Livros Sugeridos" align="center"></h1>
+      <v-layout wrap justify-space-around>
+      <v-flex v-for="genero in genres" v-bind:key="genero.id">
+        <v-card height="200px" width="240px" v-if="genero.id == escolha">
+        <p>{{book.name}}</p>
+        <p>{{book.author}}</p>
+        <p>{{book.description}}</p>
+        <p>{{book.genre_name}}</p>
+        <v-btn class="ma-2" text icon color="red lighten-2">
+          <v-icon class="delete" @click="deleteBook(book)"></v-icon>
+        </v-btn>
+        <v-btn class="ma-2" text icon color="green">
+          <v-icon class="edit" @click="editBook(book)"></v-icon>
+        </v-btn>
+        <v-divider></v-divider>
+        </v-card>
+      </v-flex>
+      </v-layout>
+      
+  </v-container>
+  </div>
     </v-container>
   </section>
 </template>
@@ -27,23 +49,37 @@ export default {
     data () {
       return  {
         texto: "Generos Literarios",
-        items: [],
+        genres: [],
+        booksgenre: [],
         escolha: "",
       }
     },
     created() {
-      this.getGenres()
+      this.getGenres(),
+      this.getBGenres()
     },
     methods: {
       getGenres() {
         axios
         .request({
-          baseURL: "http://localhost:8000",
+          baseURL: "http://127.0.0.1:8000",
           method: "get",
           url: "/api/genres/"
         })
         .then(response => {
-          this.items = response.data
+          this.genres = response.data
+          console.log(response)
+        });
+      },
+      getBGenres() {
+        axios
+        .request({
+          baseURL: "http://127.0.0.1:8000",
+          method: "get",
+          url: "/api/booksgenre/"
+        })
+        .then(response => {
+          this.booksgenre = response.data
           console.log(response)
         });
       }

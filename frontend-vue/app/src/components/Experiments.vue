@@ -28,6 +28,7 @@ export default {
       return  {
         texto: "Generos Literarios",
         items: [],
+        booksgenre: [],
         escolha: "",
       }
     },
@@ -38,12 +39,24 @@ export default {
       getGenres() {
         axios
         .request({
-          baseURL: "http://localhost:8000",
+          baseURL: "http://127.0.0.1:8000",
           method: "get",
           url: "/api/genres/"
         })
         .then(response => {
           this.items = response.data
+          console.log(response)
+        });
+      },
+      getBGenres() {
+        axios
+        .request({
+          baseURL: "http://127.0.0.1:8000",
+          method: "get",
+          url: "/api/booksgenre/"
+        })
+        .then(response => {
+          this.booksgenre = response.data
           console.log(response)
         });
       }
