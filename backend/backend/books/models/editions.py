@@ -15,6 +15,13 @@ class Edition(models.Model):
         on_delete=models.CASCADE
     )
 
+    @property
+    def author_names(self):
+        anames = []
+        for author in self.authors.all():
+            anames.append(author.name)
+        return anames
+
     class Meta:
         db_table = ''
         managed = True

@@ -21,7 +21,9 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
+import router from "@/router/"
+
 export default {
     name: "Experiments",
     data () {

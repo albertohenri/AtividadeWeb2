@@ -80,6 +80,10 @@ class BookGenre(models.Model):
     def namebook(self):
         return self.book.name
 
+    @property
+    def namegenre(self):
+        return self.genre.name
+
     def __str__(self):
         return str((self.book, self.genre))
 

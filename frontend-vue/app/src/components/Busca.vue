@@ -4,14 +4,14 @@
     <h1>Escolha genres de Livros do seu Gosto</h1>
     <h3>{{texto}}</h3>
     <v-select
-      :genres = "genres"
+      :items = "items"
       item-value = "id"
       item-text = "name"
       label = "Estilos de Livros"
       attach
       multiple
       chips
-      v-model = "genres"
+      v-model = "escolha"
     >
     </v-select>
     <h3>Minha escolha</h3>
@@ -19,10 +19,19 @@
     <v-container fluid grid-list-xl>
       <h1 class="Livros Sugeridos" align="center"></h1>
       <v-layout wrap justify-space-around>
-      <v-flex v-for="genre in booksgenre" v-bind:key="genre.id">
-        <v-card height="200px" width="240px" >
-        <p>{{genre.book}}</p>
+      <v-flex v-for="(genre,i) in booksgenre" v-bind:key="i">
+        <div  v-for="choice in escolha" v-bind:key="choice">
+
+           <v-card height="200px" width="240px" 
+       v-if="choice == genre.genre"
+        >
+       
+          <p>{{genre.book}}</p>
         <p>{{genre.namebook}}</p>
+        <p>{{genre.genre}}</p>
+        <p>{{genre.namegenre}}</p>
+        
+        
         <!-- <p>{{book.description}}</p>
         <p>{{book.genre_name}}</p> -->
         <v-btn class="ma-2" text icon color="red lighten-2">
@@ -33,6 +42,9 @@
         </v-btn>
         <v-divider></v-divider>
         </v-card>
+
+        </div>
+       
       </v-flex>
       </v-layout>
       
@@ -43,7 +55,9 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
+import router from "@/router/"
+
 export default {
     name: "Experiments",
     data () {
@@ -51,7 +65,7 @@ export default {
         texto: "genres Literarios",
         genres: [],
         booksgenre: [],
-        escolha: "",
+        escolha: [],
       }
     },
     created() {
@@ -67,7 +81,7 @@ export default {
           url: "/api/genres/"
         })
         .then(response => {
-          this.genres = response.data
+          this.items = response.data
           console.log(response)
         });
       },
